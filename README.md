@@ -1,23 +1,18 @@
-parquet-compatibility
-=====================
+### CSV to Parquet converter
 
-compatibility tests to make sur C and Java implementations can read each other
+Command line tool to convert CSV to Parquet (experimental)
+ 
+### Usage
+ ```bash
+java -jar csv2pq.jar my.csv my.parquet
+# You need to have schema definition in my.schema
+```
 
-Submodules:
------------
-* parquet-compat
-* parquet-testdata
-* parquet-compat-$version
+### Build from sources
+```
+mvn -DskipTests=true assembly:single
+#Check the jar in target folder
+```
 
-parquet-compat
---------------
-This stores the test sources. This is not a maven submodule.
-
-parquet-testdata
-----------------
-stores all the csvs and impala files (todo discuss impala compatibility test)
-
-parquet-compat-$version:
-------------------------
-pom.xml has dependency on the corresponding version of parquet-mr.
-src is a symlink to sources in parquet-compat (../parquet-compat/src).
+### TODO
+- May have problems with encoding (base64)
